@@ -6,7 +6,7 @@
     <title>Expense Tracker</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body class="dark-mode">
     <div class="container">
@@ -21,6 +21,10 @@
         <div class="main-content">
             <div class="form-section">
                 <h2>Add New Expense</h2>
+                <div class="settings-buttons">
+                    <button type="button" id="manageCategoriesBtn" class="settings-btn">Manage Categories</button>
+                    <button type="button" id="managePaymentBtn" class="settings-btn">Manage Payment Methods</button>
+                </div>
                 <form id="expenseForm">
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -80,7 +84,22 @@
                     </select>
                     <input type="date" id="viewDate">
                 </div>
-                <canvas id="expenseChart"></canvas>
+                <div id="expenseChart"></div>
+            </div>
+        </div>
+    </div>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Manage Categories</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="item-list" id="itemList"></div>
+                <div class="add-item">
+                    <input type="text" id="newItemInput" placeholder="Add new item">
+                    <button id="addItemBtn">Add</button>
+                </div>
             </div>
         </div>
     </div>
