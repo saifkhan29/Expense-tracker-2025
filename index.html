@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <header>
+            <h1>Expense Tracker</h1>
+            <button id="themeToggle" class="theme-toggle">
+                <span class="sun">🌞</span>
+                <span class="moon">🌙</span>
+            </button>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2>Add New Expense</h2>
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <div class="tab-group" id="categoryTabs">
+                            <button type="button" class="tab-btn" data-value="Food">Food</button>
+                            <button type="button" class="tab-btn" data-value="Transportation">Transportation</button>
+                            <button type="button" class="tab-btn" data-value="Entertainment">Entertainment</button>
+                            <button type="button" class="tab-btn" data-value="Shopping">Shopping</button>
+                            <button type="button" class="tab-btn" data-value="Bills">Bills</button>
+                            <button type="button" class="tab-btn" data-value="Healthcare">Healthcare</button>
+                            <button type="button" class="tab-btn" data-value="Others">Others</button>
+                        </div>
+                        <input type="hidden" id="category" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentMode">Payment Mode</label>
+                        <div class="tab-group" id="paymentTabs">
+                            <button type="button" class="tab-btn" data-value="Cash">Cash</button>
+                            <button type="button" class="tab-btn" data-value="Credit Card">Credit Card</button>
+                            <button type="button" class="tab-btn" data-value="Debit Card">Debit Card</button>
+                            <button type="button" class="tab-btn" data-value="UPI">UPI</button>
+                            <button type="button" class="tab-btn" data-value="Net Banking">Net Banking</button>
+                        </div>
+                        <input type="hidden" id="paymentMode" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Add Expense</button>
+                </form>
+                <div class="expense-list">
+                    <h3>Recent Expenses</h3>
+                    <div id="expensesList"></div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-controls">
+                    <select id="viewType">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    <input type="date" id="viewDate">
+                </div>
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
